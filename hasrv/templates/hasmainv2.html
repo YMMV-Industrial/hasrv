@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <title>Home Automation Server</title>
+  <meta name="HTML 5 based interface for replacing OOK keypads" content="">
+  <meta name="author" content="YMMV Industries">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Style stuff -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/normalize.css')}}" />
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/skeleton.css')}}" />
+  <link rel="icon" type="image/png" href="{{ url_for('static',filename='images/favicon-ymmv.png')}}" />
+  
+</head>
+<body>
+
+ 
+  <div class="container">
+    <div class="row">
+      <div class="one-half column" style="margin-top: 25%">
+        <h4>Home Automation Server</h4>
+        <p>Monitor and change up to 4 home automation on off keying based devices. To control more devices
+          and to access electrical wiring diagrams please visit <a href="https://ymmvindustrial.com"> https://ymmvindustrial.com</a>
+        </p>
+      </div>
+    </div>
+    <form method="post" action="/io">
+    <div class=""row">
+      <div class="one-half column">
+        <h4>Device List</h4>
+        <label for="hadev">current status - all</label>
+        {%for i in range(0,rows)%}
+        <input type="radio" id="{{i}}" name="hadev" value="{{i}}"> {{iodata[i]}}</input></br>  
+        {%endfor%}
+        <input class="button-primary" type="submit" value="on/off"
+      </div>
+    </div>
+    </form>
+  </div>
+
+
+</body>
+</html>
